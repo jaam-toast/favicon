@@ -8,8 +8,6 @@ import { getFavicon } from "./getFavicon";
 
 const app: express.Application = express();
 
-console.log(process.env.NODE_ENV);
-
 app.use(morgan("dev"));
 app.use(
   cors({
