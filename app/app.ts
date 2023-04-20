@@ -34,7 +34,7 @@ app.get("/favicon", async (req, res) => {
   try {
     const faviconPath = await getFavicon({ url });
 
-    res.json({ result: "ok", faviconPath });
+    res.json({ result: faviconPath, message: "ok" });
   } catch (error) {
     res.json({ result: "error", message: "Unknown error occurred" });
   }
