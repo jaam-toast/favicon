@@ -13,7 +13,7 @@ app.use(
   cors({
     origin:
       process.env.NODE_ENV === "development"
-        ? process.env.CLIENT_ORIGIN
+        ? process.env.CLIENT_ORIGIN_LOCAL
         : process.env.CLIENT_ORIGIN,
     optionsSuccessStatus: 200,
   })
