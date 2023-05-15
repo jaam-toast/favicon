@@ -24,7 +24,7 @@
     "typescript": "^5.0.4"
   },
   "scripts": {
-    "start": "npx pm2 start --name favicon ts-node -- --project ./tsconfig.json ./app/app.ts",
+    "start": "NODE_ENV=production npx pm2 start --name favicon ts-node -- --project ./tsconfig.json ./app/app.ts",
     "dev": "NODE_ENV=development ts-node-dev --transpile-only --respawn -r tsconfig-paths/register --watch ./app/app.ts --trace-warnings --trace-uncaught -- ./app/app.ts --experimental-fetch",
     "test": "jest"
   }
