@@ -12,9 +12,9 @@ app.use(morgan("dev"));
 app.use(
   cors({
     origin:
-      process.env.NODE_ENV === "development"
-        ? process.env.CLIENT_ORIGIN_LOCAL
-        : process.env.CLIENT_ORIGIN,
+      process.env.NODE_ENV === "production"
+        ? process.env.CLIENT_ORIGIN
+        : process.env.CLIENT_ORIGIN_LOCAL,
     optionsSuccessStatus: 200,
   })
 );
