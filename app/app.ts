@@ -10,12 +10,15 @@ const app: express.Application = express();
 
 app.use(morgan("dev"));
 app.use(
+  "/api",
   cors({
-    origin:
+    origin: [
       process.env.NODE_ENV === "production"
-        ? process.env.CLIENT_ORIGIN
-        : process.env.CLIENT_ORIGIN_LOCAL,
-    optionsSuccessStatus: 200,
+        ? process.env.CLIENT_URL
+        : process.env.CLIENT_LOCAL_URL,
+      process.env.PRODUCTION_CLIENT_URL,
+      process.env.ORIGIN_SERVER_URL,
+    ],
   })
 );
 
