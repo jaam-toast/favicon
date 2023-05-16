@@ -12,15 +12,18 @@ app.use(morgan("dev"));
 app.use(
   "/api",
   cors({
-    origin: [
+    origin:
       process.env.NODE_ENV === "production"
-        ? process.env.CLIENT_URL
+        ? [
+            process.env.CLIENT_URL,
+            process.env.PRODUCTION_CLIENT_URL,
+            process.env.ORIGIN_SERVER_URL,
+          ]
         : process.env.CLIENT_LOCAL_URL,
-      process.env.PRODUCTION_CLIENT_URL,
-      process.env.ORIGIN_SERVER_URL,
-    ],
   })
 );
+
+app.use(cors());
 
 app.get("/favicon", async (req, res) => {
   const { url } = req.query;
